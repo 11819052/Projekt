@@ -1,6 +1,3 @@
-
-// Hello du kleine Ratte, Simon was here!
-
 var numSelected = null;
 var tileSelected = null;
 var errors = 0;

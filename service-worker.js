@@ -2,10 +2,13 @@ const cacheName = 'sudoku_cache';
 const staticAssets = [ 
   './',
   './index.html',
+  './index.css',
+  './index.js',
   './manifest.json',
   './service-worker.js',
   './sudoku.js',
-  './sudoku.css'
+  './sudoku.css',
+  './sudoku.html'
   ];
 self.addEventListener('install', async e => {
   const cache = await caches.open(cacheName);

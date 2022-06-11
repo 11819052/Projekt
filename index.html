@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width initial-cale=1.0 user-scalable=no">
-        <title>Sudoku</title>
+        <title>Sudoku Startseite</title>
 
         <!-- Add to homescreen for Chrome on Android. Fallback for manifest.json -->
         <meta name="mobile-web-app-capable" content="yes">
@@ -19,7 +19,8 @@
         <meta name="theme-color" content="#ffffff">
        
 
-        <link rel="stylesheet" href="sudoku.css">
+        <link rel="stylesheet" href="index.css">
+        <script src="index.js"></script>
         <script src="sudoku.js"></script>
         <link rel="manifest" href="manifest.json">
     
@@ -35,15 +36,13 @@
             </script>
             
 
-        <h1>Sudoku</h1>
+        <h1> Willkommen zu: Sudoku!</h1>
         <hr>
-        <h2 id="errors">0</h2>
-
-        <!--Spielfeld-->
-        <div id="board"></div>
-        <br>
-        <div id="digits"></div>
-
+        <form>
+            <label id="labelName" for="name">Name des Spielers:</label><br>
+            <input type="text" id="name" name="name"><br>
+            <input type="button" onclick="window.location.href = 'sudoku.html';" value="Spiel starten!"/>
+        </form>
     </body>
     </head>
 </html>

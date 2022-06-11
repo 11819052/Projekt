@@ -28,15 +28,6 @@ window.onload = function(){
     setGame();
 }
 function setGame(){ //Spielfeld und Ziffernblöcke werden vorbereitet
-    //Ziffern von 1 bis 9
-    for (let i=1; i<=9; i++){
-        let number = document.createElement("div"); //erstellt ein Div-Tag: <div></div>
-        number.id = i;
-        number.innerText = i; //platziert die Ziffer in den div-Behälter: <div>1</div>
-        number.addEventListener("click", selectNumber);
-        number.classList.add("number"); //<div class="number">1</div>
-        document.getElementById("digits").appendChild(number);
-    }
 
     //Spielfeld vorbereiten
     for (let r = 0; r<9; r++){ //Für jede Reihe
@@ -64,37 +55,72 @@ function setGame(){ //Spielfeld und Ziffernblöcke werden vorbereitet
             document.getElementById("board").append(tile);    
         }
     }
+    document.getElementById("numberOptions").classList.add("hiddenOptions");  //Optionenleiste zur Auswahl der einzufügenden Zahl wird unsichtbar
 
-//Auswahl einer Zahl aus der Zahlenreihe
-function selectNumber(){
-    if(numSelected != null){ //wenn bereits eine Zahl ausgewählt wurde und eine andere angeklickt wird, muss die Auswahlfarbe wieder entfernt werden
-        numSelected.classList.remove("number-selected");
-    }
-    numSelected = this; //bezieht sich auf number-Div
-    numSelected.classList.add("number-selected");
-}
-
-//Auswahl eines zu befüllenden Blocks im Spielfeld
 function selectTile(){
-    if(numSelected){
-        if(this.innerText != ""){
-            return;
-        }
-        let coords = this.id.split("-"); // ID z.B. "4-1" wird getrennt und Ziffern in einem Array gespeichert, z.B. ["4", "1"]
-        let r = parseInt(coords[0]); //String to Int
-        let c = parseInt(coords[1]);
-
-        //Lösung überprüfen
-        if(solution[r][c]==numSelected.id){
-            this.innerText = numSelected.id;
-        }
-        else {
-            errors+=1;
-            document.getElementById("errors").innerText = errors;
-        }
-    }
+    //Position des ausgewählten Divs berechnen
+    let rec = document.getElementById(this.id).getBoundingClientRect();
+    let left  = rec.left + window.scrollX;
+    let top = rec.top + window.scrollY;
+    console.log(left+" "+top);
+    //Optionenleiste an diese Stelle positionieren und sichtbar machen
+    document.getElementById("numberOptions").style.left = left;
+    document.getElementById("numberOptions").style.top = top;
+    document.getElementById("numberOptions").classList.remove("hiddenOptions");
+    console.log("hello");
 }
 
 
+    
+// //Auswahl einer Zahl aus der Zahlenreihe
+// function selectNumber(){
+//     if(numSelected != null){ //wenn bereits eine Zahl ausgewählt wurde und eine andere angeklickt wird, muss die Auswahlfarbe wieder entfernt werden
+//         numSelected.classList.remove("number-selected");
+//     }
+//     numSelected = this; //bezieht sich auf number-Div
+//     numSelected.classList.add("number-selected");
+// }
+
+
+// //Auswahl eines zu befüllenden Blocks im Spielfeld
+// function selectTile(){
+//     if(numSelected){
+//         if(this.innerText != ""){
+//             return;
+//         }
+//         let coords = this.id.split("-"); // ID z.B. "4-1" wird getrennt und Ziffern in einem Array gespeichert, z.B. ["4", "1"]
+//         let r = parseInt(coords[0]); //String to Int
+//         let c = parseInt(coords[1]);
+
+//         //Lösung überprüfen
+//         if(solution[r][c]==numSelected.id){
+//             this.innerText = numSelected.id;
+//         }
+//         else {
+//             errors+=1;
+//             document.getElementById("errors").innerText = errors;
+//         }
+//     }
+// }
 }
+
+
+// function selectTile(){
+//     let dropdown = document.createElement("div");
+//     dropdown.classList.add("dropdown");
+//     this.parentNode.insertBefore(dropdown,this);
+
+//     dropdown.appendChild(this);
+
+//     let content = document.createElement("div");
+//     content.classList.add("dropdown-content");
+//     this.append(content);
+
+//     for(let i = 1; i<10; i++){
+//         let option = document.createElement("a");
+//         var text = document.createTextNode(i);
+//         option.appendChild(text);
+//         content.appendChild(option);
+//     }
+// }
 

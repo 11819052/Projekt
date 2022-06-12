@@ -32,15 +32,9 @@ hr{
     justify-content: center;
     align-items: center;
 }
-
-/* #digits{
-    width: 450px;
-    height: 50px;
-    background-color: cyan;
-    margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
-} */
+.tile:hover{
+    border: 1px solid aqua;
+}
 
 .number{
     width: 44px;
@@ -55,10 +49,6 @@ hr{
     justify-content: center;
     align-items: center;  
 }
-
-/* .number-Selected {
-    background-color: grey;
-} */
 
 .tile-start{
     background-color: whitesmoke;
@@ -89,7 +79,7 @@ hr{
 .options{
     width: 38px;
     height: 38px;
-    border: 1px solid black;
+    border: 1px solid lightgray;
 
     font-size: 20px;
     font-weight: bold;
@@ -99,12 +89,23 @@ hr{
     
 }
 
-.selectedOption{
-    background-color: aquamarine;
+.options:hover {
+    background-color: rgba(0, 255, 255, 0.31);
 }
 
 .hiddenOptions{
     visibility: hidden;
+}
+
+#überprüfen{
+    height: 50px;
+    width: 150px;
+    font-size: 20px;
+    font-weight: bold;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 255, 255, 0.494);
+    border-color: lightgray;
 }
 
 

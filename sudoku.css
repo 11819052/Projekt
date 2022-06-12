@@ -81,7 +81,9 @@ hr{
     display: flex;
     flex-wrap: wrap;
     z-index: 1;
-    position: relative;
+    position: absolute;
+    top: 10em;
+    left: 5em;
 }
 
 .options{

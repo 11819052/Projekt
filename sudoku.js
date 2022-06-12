@@ -50,25 +50,36 @@ function setGame(){ //Spielfeld und Ziffernblöcke werden vorbereitet
             }
 
 
-            tile.addEventListener("click", selectTile);
+            tile.addEventListener("click", selectTile, false);
             tile.classList.add("tile");
             document.getElementById("board").append(tile);    
         }
     }
     document.getElementById("numberOptions").classList.add("hiddenOptions");  //Optionenleiste zur Auswahl der einzufügenden Zahl wird unsichtbar
 
-function selectTile(){
-    //Position des ausgewählten Divs berechnen
-    let rec = document.getElementById(this.id).getBoundingClientRect();
-    let left  = rec.left + window.scrollX;
-    let top = rec.top + window.scrollY;
-    console.log(left+" "+top);
-    //Optionenleiste an diese Stelle positionieren und sichtbar machen
-    document.getElementById("numberOptions").style.left = left;
-    document.getElementById("numberOptions").style.top = top;
+function selectTile(Ereignis){
+    // //Position des ausgewählten Divs berechnen
+    // let rec = document.getElementById(this.id).getBoundingClientRect();
+    // let left  = rec.left + window.scrollX;
+    // let top = rec.top + window.scrollY;
+    // console.log(left+" "+top);
+    // //Optionenleiste an diese Stelle positionieren und sichtbar machen
+    // document.getElementById("numberOptions").style.left = left;
+    // document.getElementById("numberOptions").style.top = top;
+    // document.getElementById("numberOptions").classList.remove("hiddenOptions");
+    // console.log("hello");
+
+    if(!Ereignis) Ereignis = window.event;
+    if(document.getElementById){
+        document.getElementById("numberOptions").style.left = Ereignis.clientX + "px";
+        document.getElementById("numberOptions").style.top = Ereignis.clientY + "px";
+    }
+
     document.getElementById("numberOptions").classList.remove("hiddenOptions");
-    console.log("hello");
+    
 }
+
+
 
 
     

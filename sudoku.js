@@ -1,40 +1,38 @@
 var selectedTile = null;
 var attempts = 0;
+var difficulty = "";
 //var timeNeeded = "00:00:00";
-var board =  [
-    "--74916-5",
-    "2---6-3-9",
-    "-----7-1-",
-    "-586----4",
-    "--3----9-",
-    "--62--187",
-    "9-4-7---2",
-    "67-83----",
-    "81--45---"
-]
-var solution = [
-    "387491625",
-    "241568379",
-    "569327418",
-    "758619234",
-    "123784596",
-    "496253187",
-    "934176852",
-    "675832941",
-    "812945763"
-]
-
-var easy = []
-var mid = []
-var diff = []
+var board = []
+var solution = []
+var easy = ["586-31-7-","2-786-513","-4-7-52-6","-28--4361","6-491372-","-3162--95","4-5-82-37","17-4968-2","-6235-1-9"]
+var easySol = ["586231974","247869513","319745286","928574361","654913728","731628495","495182637","173496852","862357149"]
+var mid = ["3--5--9-8","-92-48-3-","5-693-4-1","-31-9756-","2--81--49","-59--3-8-","9--6-17-3","1-5-84-96","-2375-8--"]
+var midSol = ["314576928","792148635","831497562","267815349","459263187","459263187","948621753","175384296","623759814"]
+var diff = ["--8----32","---------","---678-9-","-----1--5","----269-3","4--93----","---1-----","-56----18","-2-7-35--"]
+var diffSol = ["618459732","947312856","532678194","293841675","871526943","465937281","389165427","756294318","124783569"]
 
 window.onload = function(){
+    difficulty = localStorage.getItem("diff");
+    document.getElementById("player").innerHTML = localStorage.getItem("name"); //Spielername wird übergeben
+    document.getElementById("difficulty").innerHTML = difficulty; //Schwierigkeitsgrad wird übergeben
     setGame();
-    document.getElementById("player").innerHTML=localStorage.getItem("name"); //Spielername wird übergeben
-    document.getElementById("difficulty").innerHTML=localStorage.getItem("diff"); //Schwierigkeitsgrad wird übergeben
 }
 function setGame(){ //Spielfeld und Auswahlmöglichkeiten werden vorbereitet
-    
+    console.log(difficulty);
+    switch (difficulty){
+        case "leicht":
+            board = easy;
+            solution = easySol;
+            break;
+        case "mittel":
+            board = mid;
+            solution = midSol;
+            break;
+        case "schwer":
+            board = diff;
+            solution = diffSol;
+            break;
+    }
     //Spielfeld vorbereiten
     for (let r = 0; r<9; r++){ //Für jede Reihe
         for (let c=0; c<9; c++){ //Für jede Spalte

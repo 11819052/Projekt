@@ -8,13 +8,13 @@ hr{
 }
 
 #errors {
-    color: coral;
+    color: rgb(198, 94, 57);
 }
 
 #board{
     width: 450px; /*Kacheln sind daher 50*50 groß*/
     height: 450px;
-    background-color: cyan;
+    background-color: rgb(176, 176, 155);
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
@@ -73,10 +73,10 @@ hr{
 }
 
 #numberOptions{
-    width: 200px;
-    height: 20px;
+    width: 400px;
+    height: 40px;
     height:auto;
-    background-color: rgb(4, 105, 105);
+    background-color: rgb(255, 255, 255);
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
@@ -87,9 +87,16 @@ hr{
 }
 
 .options{
-    width: 18px;
-    height: 18px;
+    width: 38px;
+    height: 38px;
     border: 1px solid black;
+
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
 }
 
 .hiddenOptions{

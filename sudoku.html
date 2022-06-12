@@ -12,13 +12,17 @@
     <body>
         <h1>Sudoku</h1>
         <hr>
-        <h2 id="errors">0</h2>
-
-        <!--Spielfeld-->
+        <div></div>
+        <div id="basicInfContainer">
+            <b id="player">Name</b>
+            <b id="difficulty">Schwierigkeit</b>
+            <b id="stopWatch">00:00:00</b>
+        </div>
+        <div id="attemptsContainer">
+            <b class="attempts">Anzahl der Versuche: </b>
+            <b id="attempts" class="attempts">0</b>
+        </div>
         <div id="board"></div>
-        <!-- <br> -->
-        <!-- <div id="digits"></div> -->
-
         <div id="numberOptions">
             <div id="empty" class="options"></div>
             <div id="one" class="options">1</div>
@@ -32,7 +36,7 @@
             <div id="nine" class="options">9</div>
         </div>
         <br>
-        <button id="überprüfen">Überprüfen</button>
+        <button id="überprüfen" onclick="checkGameState()">Überprüfen</button>
     </body>
     </head>
 </html>

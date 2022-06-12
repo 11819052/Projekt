@@ -1,5 +1,6 @@
 var selectedTile = null;
-var errors = 0;
+var attempts = 0;
+//var timeNeeded = "00:00:00";
 var board =  [
     "--74916-5",
     "2---6-3-9",
@@ -23,11 +24,17 @@ var solution = [
     "812945763"
 ]
 
+var easy = []
+var mid = []
+var diff = []
+
 window.onload = function(){
     setGame();
+    document.getElementById("player").innerHTML=localStorage.getItem("name"); //Spielername wird übergeben
+    document.getElementById("difficulty").innerHTML=localStorage.getItem("diff"); //Schwierigkeitsgrad wird übergeben
 }
-function setGame(){ //Spielfeld und Ziffernblöcke werden vorbereitet
-
+function setGame(){ //Spielfeld und Auswahlmöglichkeiten werden vorbereitet
+    
     //Spielfeld vorbereiten
     for (let r = 0; r<9; r++){ //Für jede Reihe
         for (let c=0; c<9; c++){ //Für jede Spalte
@@ -62,6 +69,7 @@ function setGame(){ //Spielfeld und Ziffernblöcke werden vorbereitet
         document.getElementById(id).addEventListener("click", selectNumber, false);
     });
     document.getElementById("numberOptions").classList.add("hiddenOptions");  //Optionenleiste zur Auswahl der einzufügenden Zahl wird unsichtbar
+    timer();
 }
 
 function selectTile(Ereignis){
@@ -80,27 +88,60 @@ function selectTile(Ereignis){
 
 function selectNumber(){
     selectedTile.innerText = this.innerText;
+    selectedTile.style.color = "black";
     document.getElementById("numberOptions").classList.add("hiddenOptions"); //Optionsleiste wieder unsichtbar machen
 }
 
-// //Auswahl eines zu befüllenden Blocks im Spielfeld
-// function selectTile(){
-//     if(numSelected){
-//         if(this.innerText != ""){
-//             return;
-//         }
-//         let coords = this.id.split("-"); // ID z.B. "4-1" wird getrennt und Ziffern in einem Array gespeichert, z.B. ["4", "1"]
-//         let r = parseInt(coords[0]); //String to Int
-//         let c = parseInt(coords[1]);
+function checkGameState(){
+    attempts++;
+    document.getElementById("attempts").innerText = attempts;
+    let errors = 0;
+    for (let r = 0; r<9; r++){
+        for (let c=0; c<9; c++){
+            let id = r+"-"+c; //jede Tile.id sollte generiert werden
+            //console.log("Tile: "+document.getElementById(id).innerText+", Solution")
+            if(document.getElementById(id).innerText!=solution[r][c]){ //wenn Wert von Tile nicht der Lösung entspricht
+                errors++;
+                document.getElementById(id).style.color = "red";
+            }
+        }
+    }
+    if(errors==0){ //alles richtig --> Spiel vorbei
+        console.log("Alles richtig!");
 
-//         //Lösung überprüfen
-//         if(solution[r][c]==numSelected.id){
-//             this.innerText = numSelected.id;
-//         }
-//         else {
-//             errors+=1;
-//             document.getElementById("errors").innerText = errors;
-//         }
-//     }
-// }
+        clearTimeout(t);
+        window.location.href="gameOver.html";  
+    }
+    
+}
+
+
+//-------------------STOPPUHR------------------
+var sec = 0;
+var min = 0;
+var hrs = 0;
+var t;
+
+function tick(){
+    sec++;
+    if (sec >= 60) {
+        sec = 0;
+        min++;
+        if (min >= 60) {
+            min = 0;
+            hrs++;
+        }
+    }
+}
+function add() {
+    tick();
+    document.getElementById("stopWatch").textContent = (hrs > 9 ? hrs : "0" + hrs) 
+        	 + ":" + (min > 9 ? min : "0" + min)
+       		 + ":" + (sec > 9 ? sec : "0" + sec);
+    timer();
+}
+function timer() {
+    t = setTimeout(add, 1000);
+}
+//---------------------------------------------
 

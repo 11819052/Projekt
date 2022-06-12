@@ -7,6 +7,12 @@ hr{
     width: 500px;
 }
 
+div{
+    justify-content: center;
+    align-items: center;
+    padding-top: 13em;
+}
+
 #labelName{
     font-size: large;
     color: black;

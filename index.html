@@ -35,14 +35,24 @@
             }
             </script>
             
-
-        <h1> Willkommen zu: Sudoku!</h1>
-        <hr>
-        <form>
-            <label id="labelName" for="name">Name des Spielers:</label><br>
-            <input type="text" id="name" name="name"><br>
-            <input type="button" onclick="window.location.href = 'sudoku.html';" value="Spiel starten!"/>
-        </form>
+        <div>
+            <h1> Willkommen zu <br> Sudoku!</h1>
+            <hr>
+            <br>
+            <form id="playerInfos" action="sudoku.html" method="GET">
+                <label id="labelName" for="name">Dein Name:</label><br><br>
+                <input type="text" id="name" name="name"><br><br>
+                <p>Wähle den Schwierigkeitsgrad:</p><br>
+                <input type="radio" id="leicht" name="Schwierigkeitsgrad" value="leicht">
+                <label for="leicht">leicht</label>
+                <input type="radio" id="mittel" name="Schwierigkeitsgrad" value="mittel">
+                <label for="mittel">mittel</label>
+                <input type="radio" id="schwer" name="Schwierigkeitsgrad" value="schwer">
+                <label for="schwer">schwer</label><br><br>
+                <input type="submit" value="Spiel beginnen" onclick="getData()">
+                <!-- <input type="button" onclick="window.location.href = 'sudoku.html';" value="Spiel starten!"/> -->
+            </form>
+        </div>
     </body>
     </head>
 </html>

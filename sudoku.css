@@ -7,9 +7,27 @@ hr{
     width: 500px;
 }
 
-#errors {
+.attempts {
     color: rgb(198, 94, 57);
 }
+
+#attemptsContainer{
+    display: inline-block;
+    margin-bottom: 0.5em;
+}
+
+#basicInfContainer{
+    width: 450px;
+    margin: 0 auto;
+    margin-bottom: 0.5em;
+}
+#player{
+    float: left;
+}
+#stopWatch{
+    float: right;
+}
+
 
 #board{
     width: 450px; /*Kacheln sind daher 50*50 groß*/

@@ -1,5 +1,4 @@
-var numSelected = null;
-var tileSelected = null;
+var selectedTile = null;
 var errors = 0;
 var board =  [
     "--74916-5",
@@ -57,17 +56,32 @@ function setGame(){ //Spielfeld und Ziffernblöcke werden vorbereitet
             document.getElementById("board").append(tile);    
         }
     }
+    //es werden für alle Auswahlmöglichkeiten EventListener erstellt
+    let options = ["empty","one","two","three","four","five","six","seven","eight","nine"];
+    options.forEach(id => {
+        document.getElementById(id).addEventListener("click", selectNumber, false);
+    });
     document.getElementById("numberOptions").classList.add("hiddenOptions");  //Optionenleiste zur Auswahl der einzufügenden Zahl wird unsichtbar
-    
-// //Auswahl einer Zahl aus der Zahlenreihe
-// function selectNumber(){
-//     if(numSelected != null){ //wenn bereits eine Zahl ausgewählt wurde und eine andere angeklickt wird, muss die Auswahlfarbe wieder entfernt werden
-//         numSelected.classList.remove("number-selected");
-//     }
-//     numSelected = this; //bezieht sich auf number-Div
-//     numSelected.classList.add("number-selected");
-// }
+}
 
+function selectTile(Ereignis){
+    selectedTile = this;
+
+    if(!Ereignis) Ereignis = window.event;
+    if(document.getElementById){ //öffne die Auswahloptionen an der Position des Clicks
+        document.getElementById("numberOptions").style.left = Ereignis.clientX + "px";
+        document.getElementById("numberOptions").style.top = Ereignis.clientY + "px";
+    }
+    document.getElementById("numberOptions").classList.remove("hiddenOptions");   
+
+    //console.log("Auswahl:"+selectedNumber);
+
+}
+
+function selectNumber(){
+    selectedTile.innerText = this.innerText;
+    document.getElementById("numberOptions").classList.add("hiddenOptions"); //Optionsleiste wieder unsichtbar machen
+}
 
 // //Auswahl eines zu befüllenden Blocks im Spielfeld
 // function selectTile(){
@@ -89,17 +103,4 @@ function setGame(){ //Spielfeld und Ziffernblöcke werden vorbereitet
 //         }
 //     }
 // }
-}
-
-function selectTile(Ereignis){
-    if(!Ereignis) Ereignis = window.event;
-    if(document.getElementById){
-        document.getElementById("numberOptions").style.left = Ereignis.clientX + "px";
-        document.getElementById("numberOptions").style.top = Ereignis.clientY + "px";
-    }
-
-    document.getElementById("numberOptions").classList.remove("hiddenOptions");   
-
-    
-}
 

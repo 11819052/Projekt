@@ -99,6 +99,10 @@ hr{
     
 }
 
+.selectedOption{
+    background-color: aquamarine;
+}
+
 .hiddenOptions{
     visibility: hidden;
 }

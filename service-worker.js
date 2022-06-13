@@ -8,7 +8,10 @@ const staticAssets = [
   './service-worker.js',
   './sudoku.js',
   './sudoku.css',
-  './sudoku.html'
+  './sudoku.html',
+  './gameOver.html',
+  './gameOver.css',
+  './gameOver.js'
   ];
 self.addEventListener('install', async e => {
   const cache = await caches.open(cacheName);

@@ -1,14 +1,21 @@
 body{
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     text-align: center;
+    background-color: white;
+}
+
+h1{
+    color: rgb(121, 114, 109);
+    letter-spacing: 0.5em;
+    text-shadow: 3px 3px 4px #777;
 }
 
 hr{
-    width: 500px;
+    width: 550px;
 }
 
 .attempts {
-    color: rgb(198, 94, 57);
+    color: rgb(123, 145, 130);
 }
 
 #attemptsContainer{
@@ -20,6 +27,7 @@ hr{
     width: 450px;
     margin: 0 auto;
     margin-bottom: 0.5em;
+    color: rgb(123, 145, 130);
 }
 #player{
     float: left;
@@ -28,11 +36,10 @@ hr{
     float: right;
 }
 
-
 #board{
     width: 450px; /*Kacheln sind daher 50*50 groß*/
     height: 450px;
-    background-color: rgb(176, 176, 155);
+    background-color: white;
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
@@ -41,7 +48,7 @@ hr{
 .tile{
     width: 48px;
     height: 48px;
-    border: 1px solid lightgray;
+    border: 1px solid rgb(193, 182, 161);
 
     /*Schrift*/
     font-size: 20px;
@@ -54,22 +61,9 @@ hr{
     border: 1px solid aqua;
 }
 
-.number{
-    width: 44px;
-    height: 44px;
-    border: 1px solid black;
-    margin: 2px;
-
-    /*Schrift*/
-    font-size: 20px;
-    font-weight: bold;
-    display: flex;
-    justify-content: center;
-    align-items: center;  
-}
-
 .tile-start{
-    background-color: whitesmoke;
+    background-color: rgb(181, 214, 191);
+    color: black;
 }
 
 .horizontal-line{
@@ -115,15 +109,16 @@ hr{
     visibility: hidden;
 }
 
-#überprüfen{
+.button{
     height: 50px;
     width: 150px;
     font-size: 20px;
     font-weight: bold;
     justify-content: center;
     align-items: center;
-    background-color: rgba(0, 255, 255, 0.494);
+    background-color: rgba(198,188,178,255);
     border-color: lightgray;
+    color: rgb(85, 85, 85);
 }
 
 

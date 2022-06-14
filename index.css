@@ -1,10 +1,18 @@
 body{
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     text-align: center;
+    background-color:rgb(197, 231, 207);
 }
 
 hr{
     width: 500px;
+}
+
+h1{
+    font-size: 3em;
+    color: rgb(121, 114, 109);
+    letter-spacing: 0.5em;
+    text-shadow: 3px 3px 4px #777;
 }
 
 div{
@@ -14,6 +22,6 @@ div{
 }
 
 #labelName{
-    font-size: large;
+    font-size: 2em;
     color: black;
 }

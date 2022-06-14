@@ -1,9 +1,10 @@
 var selectedTile = null;
 var attempts = 0;
-var difficulty = "";
+var difficulty = " ";
+var solved = false;
 //var timeNeeded = "00:00:00";
-var board = []
-var solution = []
+var board = ["         ","         ","         ","         ","         ","         ","         ","         ","         "]
+var solution = ["         ","         ","         ","         ","         ","         ","         ","         ","         "]
 var easy = ["586-31-7-","2-786-513","-1-7-52-6","-28--4361","6-491372-","-3162--95","4-5-82-37","17-4968-2","-6235-1-9"]
 var easySol = ["586231974","247869513","319745286","928574361","654913728","731628495","495182637","173496852","862357149"]
 var mid = ["3--5--9-8","-92-48-3-","5-693-4-1","-31-9756-","2--81--49","-59--3-8-","9--6-17-3","1-5-84-96","-2375-8--"]
@@ -71,17 +72,16 @@ function setGame(){ //Spielfeld und Auswahlmöglichkeiten werden vorbereitet
 }
 
 function selectTile(Ereignis){
-    selectedTile = this;
+    if(!solved){ //Wenn Spieler bereits auf "Auflösen" klickte, sollte nichts mehr bearbeitet werden
+        selectedTile = this;
 
-    if(!Ereignis) Ereignis = window.event;
-    if(document.getElementById){ //öffne die Auswahloptionen an der Position des Clicks
-        document.getElementById("numberOptions").style.left = Ereignis.clientX + "px";
-        document.getElementById("numberOptions").style.top = Ereignis.clientY + "px";
+        if(!Ereignis) Ereignis = window.event;
+        if(document.getElementById){ //öffne die Auswahloptionen an der Position des Clicks
+            document.getElementById("numberOptions").style.left = Ereignis.clientX + "px";
+            document.getElementById("numberOptions").style.top = Ereignis.clientY + "px";
+        }
+        document.getElementById("numberOptions").classList.remove("hiddenOptions"); 
     }
-    document.getElementById("numberOptions").classList.remove("hiddenOptions");   
-
-    //console.log("Auswahl:"+selectedNumber);
-
 }
 
 function selectNumber(){
@@ -107,12 +107,24 @@ function checkGameState(){
     if(errors==0){ //alles richtig --> Spiel vorbei
         console.log("Alles richtig!");
 
-        clearTimeout(t);
+        stopTimer();
         window.location.href="gameOver.html";  
     }
     
 }
 
+function solve(){
+    solved = true;
+    for (let r = 0; r<9; r++){
+        for (let c=0; c<9; c++){
+            let id = r+"-"+c; //jede Tile.id sollte generiert werden
+            document.getElementById(id).innerText = solution[r][c]; //Befüllen aller Felder mit den richtigen Zahlen
+        }
+    }
+    document.getElementById("überprüfen").style.visibility = "hidden"; //Überprüfen-Button ist nicht mehr notwendig
+
+    stopTimer();
+}
 
 //-------------------STOPPUHR------------------
 var sec = 0;
@@ -139,7 +151,11 @@ function add() {
     timer();
 }
 function timer() {
-    t = setTimeout(add, 1000);
+    t = setTimeout(add, 1000); //ruft jede Sekunde die Funktion add() auf
+}
+
+function stopTimer(){
+    clearTimeout(t);
 }
 //---------------------------------------------
 

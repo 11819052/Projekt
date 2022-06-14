@@ -40,16 +40,16 @@
             <hr>
             <br>
             <form id="playerInfos" action="sudoku.html" method="GET">
-                <label id="labelName" for="name">Dein Name:</label><br><br>
+                <label id="labelName" for="name" class="form">Dein Name:</label><br><br>
                 <input type="text" id="name" name="name" required><br><br>
-                <p>Wähle den Schwierigkeitsgrad:</p><br>
+                <p class="form">Wähle den Schwierigkeitsgrad:</p><br>
                 <input type="radio" id="leicht" name="Schwierigkeitsgrad" value="leicht" required>
-                <label for="leicht">leicht</label>
+                <label for="leicht" class="form">leicht</label>
                 <input type="radio" id="mittel" name="Schwierigkeitsgrad" value="mittel" required>
-                <label for="mittel">mittel</label>
+                <label for="mittel" class="form">mittel</label>
                 <input type="radio" id="schwer" name="Schwierigkeitsgrad" value="schwer" required>
-                <label for="schwer">schwer</label><br><br>
-                <input type="submit" value="Spiel beginnen" onclick="getData()">
+                <label for="schwer" class="form">schwer</label><br><br>
+                <input type="submit" value="Spiel beginnen" onclick="getData()" class="submit">
                 <!-- <input type="button" onclick="window.location.href = 'sudoku.html';" value="Spiel starten!"/> -->
             </form>
         </div>

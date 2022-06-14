@@ -1,8 +1,9 @@
 var selectedTile = null;
+var chosenName = "";
+var timeNeeded = "00:00:00";
 var attempts = 0;
 var difficulty = " ";
 var solved = false;
-//var timeNeeded = "00:00:00";
 var board = ["         ","         ","         ","         ","         ","         ","         ","         ","         "]
 var solution = ["         ","         ","         ","         ","         ","         ","         ","         ","         "]
 var easy = ["586-31-7-","2-786-513","-1-7-52-6","-28--4361","6-491372-","-3162--95","4-5-82-37","17-4968-2","-6235-1-9"]
@@ -14,7 +15,8 @@ var diffSol = ["618459732","947312856","532678194","293841675","871526943","4659
 
 window.onload = function(){
     difficulty = localStorage.getItem("diff");
-    document.getElementById("player").innerHTML = localStorage.getItem("name"); //Spielername wird übergeben
+    chosenName = localStorage.getItem("name");
+    document.getElementById("player").innerHTML = chosenName; //Spielername wird übergeben
     document.getElementById("difficulty").innerHTML = difficulty; //Schwierigkeitsgrad wird übergeben
     setGame();
 }
@@ -100,7 +102,7 @@ function checkGameState(){
             //console.log("Tile: "+document.getElementById(id).innerText+", Solution")
             if(document.getElementById(id).innerText!=solution[r][c]){ //wenn Wert von Tile nicht der Lösung entspricht
                 errors++;
-                document.getElementById(id).style.color = "red";
+                document.getElementById(id).style.color = "rgb(192, 71, 236)";
             }
         }
     }
@@ -109,6 +111,10 @@ function checkGameState(){
 
         stopTimer();
         window.location.href="gameOver.html";  
+        timeNeeded = document.getElementById("stopWatch").textContent;
+        localStorage.setItem("time", timeNeeded); 
+        localStorage.setItem("attempts", attempts);
+        console.log("Zeit: "+timeNeeded+" Versuche: "+attempts);
     }
     
 }
@@ -122,7 +128,7 @@ function solve(){
         }
     }
     document.getElementById("überprüfen").style.visibility = "hidden"; //Überprüfen-Button ist nicht mehr notwendig
-
+    document.getElementById("auflösen").style.visibility = "hidden";
     stopTimer();
 }
 

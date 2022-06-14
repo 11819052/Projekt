@@ -15,7 +15,7 @@ hr{
 }
 
 .attempts {
-    color: rgb(123, 145, 130);
+    color: rgb(121, 114, 109);
 }
 
 #attemptsContainer{
@@ -27,7 +27,7 @@ hr{
     width: 450px;
     margin: 0 auto;
     margin-bottom: 0.5em;
-    color: rgb(123, 145, 130);
+    color: rgb(121, 114, 109);
 }
 #player{
     float: left;
@@ -58,7 +58,7 @@ hr{
     align-items: center;
 }
 .tile:hover{
-    border: 1px solid aqua;
+    border: 1px solid rgb(192, 71, 236);
 }
 
 .tile-start{
@@ -102,7 +102,7 @@ hr{
 }
 
 .options:hover {
-    background-color: rgba(0, 255, 255, 0.31);
+    background-color: rgba(198,188,178,255);
 }
 
 .hiddenOptions{

@@ -9,7 +9,7 @@ hr{
 }
 
 h1{
-    font-size: 3em;
+    font-size: 2em;
     color: rgb(121, 114, 109);
     letter-spacing: 0.5em;
     text-shadow: 3px 3px 4px #777;
@@ -21,7 +21,19 @@ div{
     padding-top: 13em;
 }
 
-#labelName{
-    font-size: 2em;
+.form{
+    font-size: 1.5em;
     color: black;
+}
+
+.submit{
+    height: 50px;
+    width: 160px;
+    font-size: 20px;
+    font-weight: bold;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(198,188,178,255);
+    border-color: lightgray;
+    color: rgb(85, 85, 85);
 }

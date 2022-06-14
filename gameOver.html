@@ -6,13 +6,33 @@
         <title>Sudoku Game Over</title>       
 
         <link rel="stylesheet" href="gameOver.css">
-        <script src="sudoku.js"></script>
-        <script src="index.js"></script>
+        <!-- <script src="sudoku.js"></script>
+        <script src="index.js"></script> -->
+        <script src="gameOver.js"></script>
     
     <body>
         <h1>Super!</h1>
         <hr>
+        <table>
+            <tr>
+                <th>Name:</th>
+                <td id="name">XY</td>
+            </tr>
+            <tr>
+                <th>Schwierigkeit:</th>
+                <td id="diff">mittel</td>
+            </tr>
+            <tr>
+                <th>Zeit:</th>
+                <td id="time">00:00:00</td>
+            </tr>
+            <tr>
+                <th>Anzahl der Versuche:</th>
+                <td id="attempts"> 1</td>
+            </tr>
+        </table>
 
+        <button onclick="location.href='index.html'" class="button">Nochmal spielen</button>
     </body>
     </head>
 </html>

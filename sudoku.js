@@ -43,7 +43,7 @@ function setGame(){ //Spielfeld und Auswahlmöglichkeiten werden vorbereitet
             tile.id = r.toString() + "-" + c.toString(); //Blöcke werden daher mit "Reihe-Spalte" adressiert
 
             //Spielfeld mit Zahlen füllen
-            if(board[r][c] != "-"){ //es sollten keine Bindestriche, sondern leere Felder angezeigt werden
+            if(board[r][c] != "-"){
                 tile.innerText = board[r][c]; //Befüllen der leeren Felder mit Zahlen
                 tile.classList.add("tile-start");
             }
@@ -57,7 +57,7 @@ function setGame(){ //Spielfeld und Auswahlmöglichkeiten werden vorbereitet
             }
 
             if(board[r][c] == "-"){
-                tile.addEventListener("click", selectTile, false);
+                tile.addEventListener("click", selectTile, false); //leere Felder sollten veränderbar sein
             }
 
             tile.classList.add("tile");
